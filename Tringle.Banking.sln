@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tringle.Banking.Entities", "Tringle.Banking.Entities\Tringle.Banking.Entities.csproj", "{EFE4D516-781C-4F64-8D6B-B5473BE3CC9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tringle.Banking.DataAccess", "Tringle.Banking.DataAccess\Tringle.Banking.DataAccess.csproj", "{9DD458DC-5D42-4248-ADB0-88FB5CF25024}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tringle.Banking.Business", "Tringle.Banking.Business\Tringle.Banking.Business.csproj", "{6473A89D-2F8A-4183-B530-4C8648D6F4CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tringle.Banking.API", "Tringle.Banking.API\Tringle.Banking.API.csproj", "{8CCC6CAB-D449-4BE0-8DF6-39DBDCD35CDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tringle.Banking.XUnitTest", "Tringle.Banking.XUnitTest\Tringle.Banking.XUnitTest.csproj", "{DF1A8FC1-0534-43B9-8361-EEB0DA98FFF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFE4D516-781C-4F64-8D6B-B5473BE3CC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE4D516-781C-4F64-8D6B-B5473BE3CC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE4D516-781C-4F64-8D6B-B5473BE3CC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE4D516-781C-4F64-8D6B-B5473BE3CC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD458DC-5D42-4248-ADB0-88FB5CF25024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD458DC-5D42-4248-ADB0-88FB5CF25024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD458DC-5D42-4248-ADB0-88FB5CF25024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD458DC-5D42-4248-ADB0-88FB5CF25024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6473A89D-2F8A-4183-B530-4C8648D6F4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6473A89D-2F8A-4183-B530-4C8648D6F4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6473A89D-2F8A-4183-B530-4C8648D6F4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6473A89D-2F8A-4183-B530-4C8648D6F4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CCC6CAB-D449-4BE0-8DF6-39DBDCD35CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCC6CAB-D449-4BE0-8DF6-39DBDCD35CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCC6CAB-D449-4BE0-8DF6-39DBDCD35CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCC6CAB-D449-4BE0-8DF6-39DBDCD35CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1A8FC1-0534-43B9-8361-EEB0DA98FFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1A8FC1-0534-43B9-8361-EEB0DA98FFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1A8FC1-0534-43B9-8361-EEB0DA98FFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1A8FC1-0534-43B9-8361-EEB0DA98FFF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F0D0AA2-B51E-4C4C-BEE3-191236ABA277}
+	EndGlobalSection
+EndGlobal
