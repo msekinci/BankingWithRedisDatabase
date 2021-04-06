@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using Tringle.Banking.API.Helpers;
 using Tringle.Banking.API.Models;
@@ -27,12 +28,12 @@ namespace Tringle.Banking.API.Controllers
             {
                 if (!await _redisService.IsExistKey(accountTableKey, account.AccountNumber))
                 {
-                    //we can use AutoMapper for this
+                    //ToDo: Use AutoMapper and DTO
                     resultLog.IsError = !await _redisService.CreateHashSetDataAsync(accountTableKey, account.AccountNumber,
                         new Account
                         {
                             AccountNumber = account.AccountNumber,
-                            Balance = account.Balance,
+                            Balance = Math.Round(account.Balance, 2), //limited 2 digits
                             CurrencyCode = account.CurrencyCode.ToString()
                         });
 
