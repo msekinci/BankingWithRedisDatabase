@@ -1,16 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using Tringle.Banking.Business.Containers.MicrosoftIoC;
 using Tringle.Banking.DataAccess.Concrete.Context;
 
@@ -28,6 +23,20 @@ namespace Tringle.Banking.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(opt =>
+            {
+                opt.SwaggerDoc("doc", new OpenApiInfo
+                {
+                    Title = "Tringle.Banking",
+                    Description = "Tringle Banking API Document",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Mehmet Serkan Ekinci",
+                        Url = new Uri("https://www.linkedin.com/in/mehmet-serkan-ekinci-b231a412a/")
+                    }
+                });
+            });
+
             services.AddDependencies();
             services.AddControllers().AddNewtonsoftJson().AddJsonOptions(opts =>
             {
@@ -51,6 +60,10 @@ namespace Tringle.Banking.API
             app.UseAuthorization();
 
             redisContext.Connect();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(opt => { opt.SwaggerEndpoint("/swagger/doc/swagger.json", "Tringle.Banking"); });
 
             app.UseEndpoints(endpoints =>
             {

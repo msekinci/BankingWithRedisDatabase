@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Tringle.Banking.API.Helpers;
 using Tringle.Banking.API.Models;

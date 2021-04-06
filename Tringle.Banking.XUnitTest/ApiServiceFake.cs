@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tringle.Banking.Business.Interfaces;
 using Tringle.Banking.Entities.Concrete;
@@ -31,45 +30,45 @@ namespace Tringle.Banking.XUnitTest
             };
         }
 
-        public async Task<bool> CreateHashSetDataAsync(string tableKey, int key, Account obj)
+        public Task<bool> CreateHashSetDataAsync(string tableKey, int key, Account obj)
         {
             _accounts.Add(obj);
-            return true;
+            return Task.FromResult(true);
         }
 
-        public async Task<bool> CreateHashSetDataAsync(string tableKey, int key, Transfer obj)
+        public Task<bool> CreateHashSetDataAsync(string tableKey, int key, Transfer obj)
         {
             _transfers.Add(obj);
-            return true;
+            return Task.FromResult(true);
         }
 
-        public async Task<List<Account>> GetHashAllAsync(string tableKey)
+        public Task<List<Account>> GetHashAllAsync(string tableKey)
         {
-            return _accounts;
+            return Task.FromResult(_accounts);
         }
 
-        public async Task<Account> GetHashOneAsync(string tableKey, int key)
+        public Task<Account> GetHashOneAsync(string tableKey, int key)
         {
-            return _accounts.Where(x => x.AccountNumber == key).FirstOrDefault();
+            return Task.FromResult(_accounts.Where(x => x.AccountNumber == key).FirstOrDefault());
         }
 
-        public async Task<bool> IsExistKey(string tableKey, int key)
+        public Task<bool> IsExistKey(string tableKey, int key)
         {
-            return _accounts.Where(x => x.AccountNumber == key).Any();
+            return Task.FromResult(_accounts.Where(x => x.AccountNumber == key).Any());
         }
 
-        public async Task<bool> MakeTransfer(Transfer transfer)
+        public Task<bool> MakeTransfer(Transfer transfer)
         {
             _transfers.Add(transfer);
-            return true;
+            return Task.FromResult(true);
         }
 
-        async Task<List<Transfer>> IRedisService<Transfer>.GetHashAllAsync(string tableKey)
+        Task<List<Transfer>> IRedisService<Transfer>.GetHashAllAsync(string tableKey)
         {
-            return _transfers;
+            return Task.FromResult(_transfers);
         }
 
-        async Task<Transfer> IRedisService<Transfer>.GetHashOneAsync(string tableKey, int key)
+        Task<Transfer> IRedisService<Transfer>.GetHashOneAsync(string tableKey, int key)
         {
             throw new NotImplementedException();
         }
