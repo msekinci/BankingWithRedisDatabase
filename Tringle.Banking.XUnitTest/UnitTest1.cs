@@ -13,12 +13,15 @@ namespace Tringle.Banking.XUnitTest
     {
         AccountsController _accountsController;
         AccountingsController _accountingController;
-        IAccountService _service;
+        IAccountService _accountService;
+        IRedisService<Transfer> _redisService;
 
         public UnitTest1()
         {
-            _service = new ApiServiceFake();
-            _accountsController = new AccountsController(_service);
+            _accountService = new ApiServiceFake();
+            _redisService = new ApiServiceFake();
+            _accountsController = new AccountsController(_accountService);
+            _accountingController = new AccountingsController(_accountService, _redisService);
         }
 
         [Fact]
@@ -71,6 +74,42 @@ namespace Tringle.Banking.XUnitTest
             // Assert
             var objectResult = Assert.IsType<ObjectResult>(createdResponse);
             Assert.Equal(201, objectResult.StatusCode);
+        }
+
+        [Fact]
+        public void MakeTransfer_Without_ValidBalance_ReturnsNotSuffientFunds()
+        {
+            // Arrange
+            var transferAddModel = new TransferAddModel()
+            {
+                Amount = 1000,
+                ReceiverAccountNumber = 99,
+                SenderAccountNumber = 98
+            };
+
+            // Act
+            var createdResponse = _accountingController.Create(transferAddModel).Result;
+            // Assert
+            var objectResult = Assert.IsType<ObjectResult>(createdResponse);
+            Assert.Equal(10051, objectResult.StatusCode);
+        }
+
+        [Fact]
+        public void MakeTransfer_Without_SameCurrencyCode_ReturnsInvalidTransaction()
+        {
+            // Arrange
+            var transferAddModel = new TransferAddModel()
+            {
+                Amount = 10,
+                ReceiverAccountNumber = 99,
+                SenderAccountNumber = 97
+            };
+
+            // Act
+            var createdResponse = _accountingController.Create(transferAddModel).Result;
+            // Assert
+            var objectResult = Assert.IsType<ObjectResult>(createdResponse);
+            Assert.Equal(10012, objectResult.StatusCode);
         }
     }
 }

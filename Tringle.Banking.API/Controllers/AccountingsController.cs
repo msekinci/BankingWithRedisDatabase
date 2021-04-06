@@ -54,7 +54,7 @@ namespace Tringle.Banking.API.Controllers
                 {
                     return StatusCode((int)Enums.Enums.StatusCode.INVALID_TRANSACTION,
                         ActionResultHelper.CreateActionResultJson(
-                            Enums.Enums.StatusCode.INVALID_CARD_NUMBER,
+                            Enums.Enums.StatusCode.INVALID_TRANSACTION,
                         "CurrencyCode of the accounts are not same"));
                 }
 
@@ -63,7 +63,7 @@ namespace Tringle.Banking.API.Controllers
                 {
                     return StatusCode((int)Enums.Enums.StatusCode.NOT_SUFFICIENT_FUNDS,
                         ActionResultHelper.CreateActionResultJson(
-                            Enums.Enums.StatusCode.INVALID_CARD_NUMBER,
+                            Enums.Enums.StatusCode.NOT_SUFFICIENT_FUNDS,
                         "There is not enough money in your account"));
                 }
 
